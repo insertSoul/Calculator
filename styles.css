@@ -4,32 +4,34 @@
     background-color: gray;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 8px;
     align-items: center;
 }
 .display{
-    height: 60px;
-    width: 220px;
+    height: 19px;
+    width: 233px;
     background-color: lightgray;
-    margin: 15px;
+    margin: 8px 8px 0px;
+    text-align: right;
+    padding: 23px 3px;
+    font-size: larger;
+    font-weight: 800;
 }
-.buttons{
-    height: 270px;
-    width: 220px;
+.allButtons{
+    height: 302px;
+    width: 234px;
     background-color: black;
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     gap:1px;
-
-
-
 }
-.test1{
+.buttons{
     background-color: blueviolet;
-    width: 54px;
-    height: 66px;
+    width: 27px;
+    height: 29px;
     flex: auto;
-
+    text-align: center;
+    padding: 15px 11px;
 }
