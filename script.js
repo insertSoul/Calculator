@@ -27,8 +27,11 @@ function operate(num1, num2, operator) {
 }
 
 function populateDisplay(output) {
-    display.textContent = output
+    display.textContent += output; 
 
+}
+function clearDisplay() {
+    display.textContent = ''
 }
 
 const display = document.querySelector('.display')
@@ -41,32 +44,36 @@ const button6 = document.querySelector('#button6')
 const button7 = document.querySelector('#button7')
 const button8 = document.querySelector('#button8')
 const button9 = document.querySelector('#button9')
+const buttonClear = document.querySelector('#buttonClear')
 
 
 button1.addEventListener('click', () => {
     populateDisplay('1');
 });
 button2.addEventListener('click', () => {
-    populateDisplay('2')
+    populateDisplay('2');
 })
 button3.addEventListener('click', () => {
-    populateDisplay('3')
+    populateDisplay('3');
 })
 button4.addEventListener('click', () => {
-    populateDisplay('4')
+    populateDisplay('4');
 })
 button5.addEventListener('click', () => {
-    populateDisplay('5')
+    populateDisplay('5');
 })
 button6.addEventListener('click', () => {
-    populateDisplay('6')
+    populateDisplay('6');
 })
 button7.addEventListener('click', () => {
-    populateDisplay('7')
+    populateDisplay('7');
 })
 button8.addEventListener('click', () => {
-    populateDisplay('8')
+    populateDisplay('8');
 })
 button9.addEventListener('click', () => {
-    populateDisplay('9')
+    populateDisplay('9');
+})
+buttonClear.addEventListener('click', () => {
+    clearDisplay();
 })
