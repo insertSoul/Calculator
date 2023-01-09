@@ -99,6 +99,11 @@ plus.addEventListener('click', () => {
     currentOperator = 'add';
     clearDisplay();
 })
+minus.addEventListener('click', () => {
+    firstNumber = display.textContent
+    currentOperator = 'subtract';
+    clearDisplay();
+})
 
 let currentOperator = '';
 let firstNumber = null;
