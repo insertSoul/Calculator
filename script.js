@@ -104,6 +104,16 @@ minus.addEventListener('click', () => {
     currentOperator = 'subtract';
     clearDisplay();
 })
+product.addEventListener('click', () => {
+    firstNumber = display.textContent
+    currentOperator = 'multiply';
+    clearDisplay();
+})
+divisor.addEventListener('click', () => {
+    firstNumber = display.textContent
+    currentOperator = 'divide';
+    clearDisplay();
+})
 
 let currentOperator = '';
 let firstNumber = null;
