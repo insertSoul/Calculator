@@ -18,6 +18,14 @@ const divide = function(num1, num2) {
     return num1 / num2;
 }
 
+function populateDisplay(output) {
+    display.textContent += output; 
+
+}
+function clearDisplay() {
+    display.textContent = ''
+}
+
 function operate(num1, num2, operator) {
     if (operator == 'add') {
         return add(num1, num2);
@@ -36,13 +44,12 @@ function onOperatorClick(operatorPressed) {
     clearDisplay();
 }
 
-function populateDisplay(output) {
-    display.textContent += output; 
-
-}
-function clearDisplay() {
-    display.textContent = ''
-}
+function calculateAndDisplay() {
+    secondNumber = display.textContent;
+    firstNumber = Number(firstNumber);
+    secondNumber = Number(secondNumber);
+    display.textContent = (operate(firstNumber, secondNumber, currentOperator));
+};
 
 const display = document.querySelector('.display')
 const button0 = document.querySelector('#button0')
@@ -94,16 +101,13 @@ button8.addEventListener('click', () => {
 button9.addEventListener('click', () => {
     populateDisplay('9');
 });
+
 buttonClear.addEventListener('click', () => {
     clearDisplay();
+    currentOperator = ''
 });
-equals.addEventListener('click', () => {
-    secondNumber = display.textContent;
-    firstNumber = Number(firstNumber);
-    secondNumber = Number(secondNumber);
-    display.textContent = (operate(firstNumber, secondNumber, currentOperator));
 
-});
+equals.addEventListener('click', calculateAndDisplay);
 
 plus.addEventListener('click', () => onOperatorClick('add'));
 minus.addEventListener('click', () => onOperatorClick('subtract'));
