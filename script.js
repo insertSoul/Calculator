@@ -1,3 +1,7 @@
+let currentOperator = '';
+let firstNumber = null;
+let secondNumber = null;
+
 const add = function(num1, num2) {
     return num1 + num2;
 };
@@ -24,6 +28,12 @@ function operate(num1, num2, operator) {
     } else if (operator == 'divide') {
         return divide(num1, num2);
     }
+}
+
+function onOperatorClick(operatorPressed) {
+    firstNumber = display.textContent;
+    currentOperator = operatorPressed ;
+    clearDisplay();
 }
 
 function populateDisplay(output) {
@@ -93,29 +103,11 @@ equals.addEventListener('click', () => {
     secondNumber = Number(secondNumber);
     display.textContent = (operate(firstNumber, secondNumber, currentOperator));
 
-})
-plus.addEventListener('click', () => {
-    firstNumber = display.textContent;
-    currentOperator = 'add';
-    clearDisplay();
-})
-minus.addEventListener('click', () => {
-    firstNumber = display.textContent
-    currentOperator = 'subtract';
-    clearDisplay();
-})
-product.addEventListener('click', () => {
-    firstNumber = display.textContent
-    currentOperator = 'multiply';
-    clearDisplay();
-})
-divisor.addEventListener('click', () => {
-    firstNumber = display.textContent
-    currentOperator = 'divide';
-    clearDisplay();
-})
+});
 
-let currentOperator = '';
-let firstNumber = null;
-let secondNumber = null;
+plus.addEventListener('click', () => onOperatorClick('add'));
+minus.addEventListener('click', () => onOperatorClick('subtract'));
+product.addEventListener('click', () => onOperatorClick('multiply'));
+divisor.addEventListener('click', () => onOperatorClick('divide'));
+
 
