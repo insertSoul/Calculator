@@ -5,20 +5,16 @@ let currentAnswer = null;
 
 const add = function(num1, num2) {
     return num1 + num2;
-};
-  
+}; 
 const subtract = function(num1, num2) {
     return num1 - num2;
 };
-
 const multiply = function(num1, num2) {
     return num1 * num2;
 };
-
 const divide = function(num1, num2) {
     return num1 / num2;
 }
-
 function populateDisplay(output) {
     if (currentAnswer) {
         clearDisplay();
@@ -72,6 +68,12 @@ function calculateAndDisplay() {
     currentAnswer = (operate(firstNumber, secondNumber, currentOperator));
     display.textContent = currentAnswer;
 };
+
+function onEquals() { // reset calculator to state to carry on calculating 
+    currentOperator = ''
+    secondNumber = currentAnswer;
+    firstNumber = null;
+}
 
 const display = document.querySelector('.display')
 const button0 = document.querySelector('#button0')
@@ -128,7 +130,10 @@ buttonClear.addEventListener('click', () => {
     clearAll();
 });
 
-equals.addEventListener('click', calculateAndDisplay);
+equals.addEventListener('click', () => {
+    calculateAndDisplay();
+    onEquals();
+});
 
 plus.addEventListener('click', () => onOperatorClick('add'));
 minus.addEventListener('click', () => onOperatorClick('subtract'));
