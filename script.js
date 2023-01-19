@@ -66,7 +66,8 @@ function calculateAndDisplay() {
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
     currentAnswer = (operate(firstNumber, secondNumber, currentOperator));
-    display.textContent = currentAnswer;
+    roundedAnswer = Math.round(currentAnswer * 10) / 10
+    display.textContent = roundedAnswer;
 };
 
 function onEquals() { // reset calculator to state to carry on calculating 
@@ -86,6 +87,7 @@ const button6 = document.querySelector('#button6')
 const button7 = document.querySelector('#button7')
 const button8 = document.querySelector('#button8')
 const button9 = document.querySelector('#button9')
+const decimalPoint = document.querySelector('#decimalPoint')
 const buttonClear = document.querySelector('#buttonClear')
 const plus = document.querySelector('#plus')
 const minus = document.querySelector('#minus')
@@ -125,6 +127,9 @@ button8.addEventListener('click', () => {
 button9.addEventListener('click', () => {
     populateDisplay('9');
 });
+decimalPoint.addEventListener('click', () => {
+    populateDisplay('.');
+})
 
 buttonClear.addEventListener('click', () => {
     clearAll();
