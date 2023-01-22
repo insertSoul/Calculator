@@ -128,7 +128,11 @@ button9.addEventListener('click', () => {
     populateDisplay('9');
 });
 decimalPoint.addEventListener('click', () => {
+    if (display.textContent.includes('.')) {
+        // do nothing
+    } else {
     populateDisplay('.');
+    }
 })
 
 buttonClear.addEventListener('click', () => {
