@@ -2,6 +2,7 @@ let firstNumber = null;
 let secondNumber = null;
 let currentOperator = '';
 let currentAnswer = null;
+let operatorPressedLast = false; //used for changing operator mid calculation
 
 const add = function(num1, num2) {
     return num1 + num2;
@@ -22,6 +23,7 @@ function populateDisplay(output) {
         currentAnswer = null;
     } 
     display.textContent += output;
+    operatorPressedLast = false;
 }
 
 function clearDisplay() {
@@ -34,6 +36,7 @@ function clearAll() {
     secondNumber = null;
     currentOperator = '';
     currentAnswer = null;
+    operatorPressedLast = false;
 
 }
 
@@ -50,6 +53,9 @@ function operate(num1, num2, operator) {
 }
 
 function onOperatorClick(operatorPressed) {
+    if (operatorPressedLast == true) {
+        return currentOperator = operatorPressed;
+    }
     if (currentOperator == false) {
         firstNumber = display.textContent;
         currentOperator = operatorPressed;
@@ -59,6 +65,7 @@ function onOperatorClick(operatorPressed) {
         firstNumber = null;
         currentOperator = operatorPressed;
     }
+    operatorPressedLast = true;
 }
 
 function calculateAndDisplay() {
