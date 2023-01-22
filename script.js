@@ -37,7 +37,6 @@ function clearAll() {
     currentOperator = '';
     currentAnswer = null;
     operatorPressedLast = false;
-
 }
 
 function operate(num1, num2, operator) {
@@ -83,6 +82,15 @@ function onEquals() { // reset calculator to state to carry on calculating
     firstNumber = null;
 }
 
+function changeOfSign() {
+    let tempNumber = Number(display.textContent)
+    if (tempNumber > 0) {
+        display.textContent = -Math.abs(tempNumber)
+    } else {
+        display.textContent = Math.abs(tempNumber)
+    }
+}
+
 const display = document.querySelector('.display')
 const button0 = document.querySelector('#button0')
 const button1 = document.querySelector('#button1')
@@ -96,6 +104,7 @@ const button8 = document.querySelector('#button8')
 const button9 = document.querySelector('#button9')
 const decimalPoint = document.querySelector('#decimalPoint')
 const buttonClear = document.querySelector('#buttonClear')
+const plusMinus = document.querySelector('#plusOrMinus')
 const plus = document.querySelector('#plus')
 const minus = document.querySelector('#minus')
 const product = document.querySelector('#product')
@@ -141,7 +150,7 @@ decimalPoint.addEventListener('click', () => {
     populateDisplay('.');
     }
 })
-
+plusMinus.addEventListener('click', changeOfSign)
 buttonClear.addEventListener('click', () => {
     clearAll();
 });
